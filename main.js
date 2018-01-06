@@ -1,14 +1,17 @@
-var iMax = 10;
-var jMax = 10;
+//randomly generate a 2D array of 1s and 0s with equal rows and columns 
+function arr_rand_gen(size) {
 var f = new Array();
-
-for (i=0;i<iMax;i++) {
+for (i=0;i<size;i++) {
  f[i]=new Array();
- for (j=0;j<jMax;j++) {
+ for (j=0;j<size;j++) {
   f[i][j]=Math.round(Math.random());
  }
 }
+return f
+}
 
+
+//Encodes a 1D array such that. 
 function  encoder(array) {
 let arr2=[];
 let num = 0;
@@ -26,50 +29,50 @@ if(num>0) {
     } return arr2; }
 
 
+//Loop through and encode a 2D array using the encoder function
 function encode_arr(arr){
     var arr_out = []
     for (let i of arr){
         arr_out.push(encoder(i))}
     return arr_out  }
 
-function makeGrid(size){
 
+// Make a HTML table style grid.     
+function makeGrid(size){
     var s=""
     for (var i = 0; i < size; i++)
 {
     s+= "<tr> "+ " <td></td> ".repeat(size) +"</tr>" 
-
-
 }
   return s 
-
 }
 
-document.getElementById("picross").innerHTML =  makeGrid(5)
+
+// Trasnpose the array 
+function T(array){
+    return array[0].map((col, i) => array.map(row => row[i]));}
 
 
 
 
 
 var didClickIt = false;
-        document.getElementById("make_grid").addEventListener("click",function(){
-            // same as onclick, keeps the JS and HTML separate
-            didClickIt = true;
-        });
+document.getElementById("submitter").addEventListener("click",function(){
+    // same as onclick, keeps the JS and HTML separate
+    didClickIt = true;
+});
 
-        setInterval(function(){
-            // this is the closest you get to an infinite loop in JavaScript
-            if( didClickIt ) {
-                didClickIt = false;
-                // document.write causes silly problems, do this instead (or better yet, use a library like jQuery to do this stuff for you)
-                var o=document.getElementById("output"),v=document.getElementById("userInput").value;
-                if(o.textContent!==undefined){
-                    o.textContent=v;
-                }else{
-                    o.innerText=v;
-                }
-            }
-        },500);
+setInterval(function(){
+    // this is the closest you get to an infinite loop in JavaScript
+    if( didClickIt ) {
+        didClickIt = false;
+        // document.write causes silly problems, do this instead (or better yet, use a library like jQuery to do this stuff for you)
+        var o=document.getElementById("output"),v=document.getElementById("userInput").value;
+        if(o.textContent!==undefined){
+            o.textContent=v;
+        }else{
+            o.innerText=v;
+        }
+    }
+},500);
 
-function T(array){
-return array[0].map((col, i) => array.map(row => row[i]));}
