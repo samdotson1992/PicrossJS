@@ -1,15 +1,28 @@
 // Make a HTML table style grid.     
 function makeGrid(size){
-    var s="<table id='picross'>"
+
+   var arr=arr_rand_gen(size)
+    var encoded = encode_arr(arr)
+   var encodeT = encode_arr(T(arr))
+   
+
+    var s= encoded+ "     " + encodeT + "   <table id='picross'> <tr> <td></td>"
+    for (let i of encodeT){
+    s += "<<td>" + i.toString() + "</td>"
+    }
+
+    s+="</tr>"
+
     for (var i = 0; i < size; i++)
 {
-    s+= "<tr> "+ " <td></td> ".repeat(size) +"</tr>" 
+    s+= "<tr> "+" <td>"+encoded[i].toString()+ "</td> " +  " <td></td> ".repeat(size) +"</tr>" 
 }
+    console.log(s)
   return s+"</table>" 
 }
 
 
-
+//update HTML elements 
 function updateHTML(elmId, value) {
     var elem = document.getElementById(elmId);
     if(typeof elem !== 'undefined' && elem !== null) {
@@ -17,9 +30,6 @@ function updateHTML(elmId, value) {
       console.log(value)
     }
   }
-
-
-
 
 
 //randomly generate a 2D array of 1s and 0s with equal rows and columns 
@@ -59,9 +69,6 @@ function encode_arr(arr){
     for (let i of arr){
         arr_out.push(encoder(i))}
     return arr_out  }
-
-
-
 
 
 
