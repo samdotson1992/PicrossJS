@@ -1,0 +1,48 @@
+#tic-tac-toe {
+cell-spacing: 0px;
+border-spacing: 0px;
+border-collapse: separate;
+margin-top: 30px;
+margin-bottom: 30px;
+margin: 30px auto;
+}
+
+#tic-tac-toe td {
+border: 2px solid #000;
+height: 100px;
+width: 100px;
+text-align: center;
+font: 200 60px helvetica neue, arial;
+cursor: pointer;
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+#tic-tac-toe tr:first-child td { /* First row all columns */
+border-top: none
+}
+
+#tic-tac-toe tr:last-child td { /* Last row all columns */
+border-bottom: none
+}
+
+#tic-tac-toe tr td:first-child { /* First column of every row */
+border-left: none;
+}
+
+#tic-tac-toe tr td:last-child { /* Last column of every row */
+border-right: none;
+}
+
+#tic-tac-toe td.X { /* Player 1 color */
+color: #238EE1;
+}
+
+#tic-tac-toe td.O { /* Player 2 color */
+color: #FF1010;
+}
+
