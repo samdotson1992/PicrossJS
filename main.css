@@ -1,4 +1,4 @@
-#tic-tac-toe {
+#picross {
 cell-spacing: 0px;
 border-spacing: 0px;
 border-collapse: separate;
@@ -7,7 +7,7 @@ margin-bottom: 30px;
 margin: 30px auto;
 }
 
-#tic-tac-toe td {
+#picross td {
 border: 2px solid #000;
 height: 100px;
 width: 100px;
@@ -22,27 +22,27 @@ cursor: pointer;
 user-select: none;
 }
 
-#tic-tac-toe tr:first-child td { /* First row all columns */
+#picross tr:first-child td { /* First row all columns */
 border-top: none
 }
 
-#tic-tac-toe tr:last-child td { /* Last row all columns */
+#picross tr:last-child td { /* Last row all columns */
 border-bottom: none
 }
 
-#tic-tac-toe tr td:first-child { /* First column of every row */
+#picross tr td:first-child { /* First column of every row */
 border-left: none;
 }
 
-#tic-tac-toe tr td:last-child { /* Last column of every row */
+#picross tr td:last-child { /* Last column of every row */
 border-right: none;
 }
 
-#tic-tac-toe td.X { /* Player 1 color */
+#picross td.X { /* Player 1 color */
 color: #238EE1;
 }
 
-#tic-tac-toe td.O { /* Player 2 color */
+#picross td.O { /* Player 2 color */
 color: #FF1010;
 }
 

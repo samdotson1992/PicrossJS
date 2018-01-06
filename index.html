@@ -3,22 +3,34 @@
 <head>
 
 <script src="main.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
 <title>PicrossJS</title>
 </head>
 
 
 <body>
 
-
-<input type="text" id="userInput">give me input</input>
-<button id="submitter">Submit</button>
-<div id="output"></div>
-
 <div id="placeholder">
-	<!-- During implementation we will generate the below table using Javascript to generate N x N grid -->
-	<table id="picross">
-		
-	</table>
+    <!-- During implementation we will generate the below table using Javascript to generate N x N grid -->
+          
+<form class="w3-card-4">
+    <h1>Select grid size</h1>
+    <select class="w3-select w3-border" id="select" name="option">
+      <option value=5>5</option>
+      <option value=7>7</option>
+      <option value=10>10</option>
+    </select>
+    <button class="w3-btn w3-teal" type="button" onclick="updateHTML('picross', makeGrid(document.getElementById('select').value))">Make Grid</button>
+  </form>
+
+<div id="picross">
+
+</div>
 </div>
 
 </body>

@@ -1,3 +1,27 @@
+// Make a HTML table style grid.     
+function makeGrid(size){
+    var s="<table id='picross'>"
+    for (var i = 0; i < size; i++)
+{
+    s+= "<tr> "+ " <td></td> ".repeat(size) +"</tr>" 
+}
+  return s+"</table>" 
+}
+
+
+
+function updateHTML(elmId, value) {
+    var elem = document.getElementById(elmId);
+    if(typeof elem !== 'undefined' && elem !== null) {
+      document.getElementById(elmId).innerHTML = value;
+      console.log(value)
+    }
+  }
+
+
+
+
+
 //randomly generate a 2D array of 1s and 0s with equal rows and columns 
 function arr_rand_gen(size) {
 var f = new Array();
@@ -37,15 +61,8 @@ function encode_arr(arr){
     return arr_out  }
 
 
-// Make a HTML table style grid.     
-function makeGrid(size){
-    var s=""
-    for (var i = 0; i < size; i++)
-{
-    s+= "<tr> "+ " <td></td> ".repeat(size) +"</tr>" 
-}
-  return s 
-}
+
+
 
 
 // Trasnpose the array 
@@ -53,26 +70,4 @@ function T(array){
     return array[0].map((col, i) => array.map(row => row[i]));}
 
 
-
-
-
-var didClickIt = false;
-document.getElementById("submitter").addEventListener("click",function(){
-    // same as onclick, keeps the JS and HTML separate
-    didClickIt = true;
-});
-
-setInterval(function(){
-    // this is the closest you get to an infinite loop in JavaScript
-    if( didClickIt ) {
-        didClickIt = false;
-        // document.write causes silly problems, do this instead (or better yet, use a library like jQuery to do this stuff for you)
-        var o=document.getElementById("output"),v=document.getElementById("userInput").value;
-        if(o.textContent!==undefined){
-            o.textContent=v;
-        }else{
-            o.innerText=v;
-        }
-    }
-},500);
 
