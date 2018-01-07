@@ -1,3 +1,25 @@
+* {
+    box-sizing: border-box;
+    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+}
+
+#menu {
+    width: 25%;
+    float: left;
+    margin: 50px;
+    padding: 50px;
+}
+#game {
+    width: 75%;
+    float: center;
+}
+
+#header{
+  
+   font-size: 3.5em;
+}
+
+
 #picross {
 cell-spacing: 0px;
 border-spacing: 0px;

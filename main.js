@@ -9,7 +9,7 @@ function makeGrid(size) {
     var arr = arr_rand_gen(size);
     var encoded = encode_arr(arr);
     var encodeT = encode_arr(T(arr));
-    table = table_gen(size);
+    var table = table_gen(size);
 
     game_arr = arr
     game_encoded = encoded
@@ -18,14 +18,15 @@ function makeGrid(size) {
 
     var s = "<table id='picross'> <tr> <td></td>";
     for (let i of encodeT) {
-        s += "<<td>" + i.toString() + "</td>";
+        s += "<td>" + i.toString().replace(/,/g, " ")  + "</td>";
     };
+
 
     s += "</tr>";
 
     for (var i = 0; i < size; i++) {
 
-        s += "<tr> " + " <td>" + encoded[i].toString() + "</td> " + table[i]
+        s += "<tr> " + " <td>" + encoded[i].toString().replace(/,/g, " ") + "</td> " + table[i]
     }
 
     return s + "</table>"
