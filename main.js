@@ -1,9 +1,10 @@
 var game_arr = null;
 var game_encoded = null;
 var game_encodedT = null;
-var game_score =null;
-var clicked =[];
+var game_score = null;
+var clicked = [];
 var progress = 0;
+
 
 
 // Make a HTML table style grid.     
@@ -15,12 +16,12 @@ function makeGrid(size) {
 
     game_arr = arr
     game_encoded = encoded
-    game_encodedT =encodeT
-     
+    game_encodedT = encodeT
 
-    var s = "<table id='picross'> <tr> <td></td>";
+
+    var s = "<table  id='picross'> <tr> <td></td>"
     for (let i of encodeT) {
-        s += "<td>" + i.toString().replace(/,/g, " ")  + "</td>";
+        s += "<td class = 'columns'> " + i.toString().replace(/,/g, " ") + "</td>";
     };
 
 
@@ -28,11 +29,13 @@ function makeGrid(size) {
 
     for (var i = 0; i < size; i++) {
 
-        s += "<tr> " + " <td>" + encoded[i].toString().replace(/,/g, " ") + "</td> " + table[i]
+        s += "<tr> " + " <td  style= 'width: 20%;' class = 'rows'> "+ encoded[i].toString().replace(/,/g, " ") + "</td> " + table[i]
     }
 
     return s + "</table>"
 }
+
+
 
 
 console.log(game_arr)
@@ -79,18 +82,18 @@ function table_gen(size) {
 function arrSum(arr) {
     var sum = 0;
     // iterate array using forEach, better to use for loop since it have higher performance
-    arr.forEach(function(v) {
-      // checking array element is an array
-      if (typeof v == 'object')
-        // if array then getting sum it's element (recursion)
-        sum += arrSum(v);
-      else
-        // else adding the value with sum
-        sum += v
+    arr.forEach(function (v) {
+        // checking array element is an array
+        if (typeof v == 'object')
+            // if array then getting sum it's element (recursion)
+            sum += arrSum(v);
+        else
+            // else adding the value with sum
+            sum += v
     })
     // returning the result
     return sum;
-  }
+}
 
 
 //Encodes a 1D array such that. 
@@ -129,23 +132,22 @@ function findIndex(s) {
     var i1 = parseInt(s[1])
     if (!(clicked.includes(s))) {
 
-    if (game_arr[i0][i1]==1){
-        document.getElementById(s).style.backgroundColor = "grey"
-        game_score = game_score+1;
-        progress=progress+1
-    }
-    else {
-        document.getElementById(s).style.backgroundColor = "red"
-        game_score = game_score-1;
+        if (game_arr[i0][i1] == 1) {
+            document.getElementById(s).style.backgroundColor = "#aaaaaa"
+            game_score = game_score + 1;
+            progress = progress + 1
+        } else {
+            document.getElementById(s).style.backgroundColor = "#e5a3a3"
+            game_score = game_score - 1;
+
+        }
+        clicked.push(s)
+        if (progress == arrSum(game_arr)) {
+            updateHTML("win", "You win with a final score of " + game_score.toString())
+        }
+
 
     }
-    clicked.push(s)
-if (progress== arrSum(game_arr)){
-    updateHTML("win", "You win with a final score of " +game_score.toString())
-}
-
-
-}
     updateHTML("score", game_score.toString())
 
 }

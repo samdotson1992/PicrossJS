@@ -44,6 +44,21 @@ cursor: pointer;
 user-select: none;
 }
 
+
+.rows{
+    text-align:right;
+    background-blend-mode: color;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.columns{
+vertical-align: -webkit-baseline-middle;
+background-color: black;
+color: whitesmoke;
+}
+
+
 #picross tr:first-child td { /* First row all columns */
 border-top: none
 }
@@ -60,11 +75,5 @@ border-left: none;
 border-right: none;
 }
 
-#picross td.X { /* Player 1 color */
-color: #238EE1;
-}
 
-#picross td.O { /* Player 2 color */
-color: #FF1010;
-}
 
