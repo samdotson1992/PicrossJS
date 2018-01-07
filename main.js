@@ -21,15 +21,18 @@ function makeGrid(size) {
 
     var s = "<table  id='picross'> <tr> <td></td>"
     for (let i of encodeT) {
-        s += "<td class = 'columns'> " + i.toString().replace(/,/g, " ") + "</td>";
+        s += "<td class = 'columns'> " + i.toString().replace(/,/g, "  ") + "</td>";
     };
 
 
     s += "</tr>";
 
-    for (var i = 0; i < size; i++) {
+    var it=0
+    for (let i of encoded) {
 
-        s += "<tr> " + " <td  style= 'width: 20%;' class = 'rows'> "+ encoded[i].toString().replace(/,/g, " ") + "</td> " + table[i]
+        s += "<tr> " + "<td  style= 'width: 20%;' class = 'rows'> "+ i.toString().replace(/,/g, "  ") + "</td>" + table[it].toString().replace(/,/g, "  ") 
+        it=it+1;
+        console.log(table[it])
     }
 
     return s + "</table>"
