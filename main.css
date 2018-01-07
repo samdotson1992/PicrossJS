@@ -8,6 +8,8 @@
     float: left;
     margin: 50px;
     padding: 50px;
+    font-size: 1.2em;
+
 }
 #game {
     width: 75%;
@@ -15,8 +17,9 @@
 }
 
 #header{
-  
-   font-size: 3.5em;
+  font-weight: 500;
+   font-size: 4em;
+   font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
 }
 
 

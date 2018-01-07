@@ -5,8 +5,6 @@ var game_score = null;
 var clicked = [];
 var progress = 0;
 
-
-
 // Make a HTML table style grid.     
 function makeGrid(size) {
     var arr = arr_rand_gen(size);
@@ -17,7 +15,6 @@ function makeGrid(size) {
     game_arr = arr
     game_encoded = encoded
     game_encodedT = encodeT
-
 
     var s = "<table  id='picross'> <tr> <td></td>"
     for (let i of encodeT) {
@@ -37,7 +34,6 @@ function makeGrid(size) {
 
     return s + "</table>"
 }
-
 
 
 
