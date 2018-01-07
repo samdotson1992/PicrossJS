@@ -1,7 +1,9 @@
-var game_arr = null
-var game_encoded = null
-var game_encodedT = null
-
+var game_arr = null;
+var game_encoded = null;
+var game_encodedT = null;
+var game_score =null;
+var clicked =[];
+var progress = 0;
 
 
 // Make a HTML table style grid.     
@@ -47,6 +49,7 @@ function updateHTML(elmId, value) {
 
 //randomly generate a 2D array of 1s and 0s with equal rows and columns 
 function arr_rand_gen(size) {
+    score = 0;
     var f = new Array();
     for (i = 0; i < size; i++) {
         f[i] = new Array();
@@ -71,6 +74,23 @@ function table_gen(size) {
     return f
 }
 
+
+// add up all values in array. 
+function arrSum(arr) {
+    var sum = 0;
+    // iterate array using forEach, better to use for loop since it have higher performance
+    arr.forEach(function(v) {
+      // checking array element is an array
+      if (typeof v == 'object')
+        // if array then getting sum it's element (recursion)
+        sum += arrSum(v);
+      else
+        // else adding the value with sum
+        sum += v
+    })
+    // returning the result
+    return sum;
+  }
 
 
 //Encodes a 1D array such that. 
@@ -104,17 +124,30 @@ function encode_arr(arr) {
 
 
 function findIndex(s) {
-    console.log("find index found!")
+
     var i0 = parseInt(s[0])
     var i1 = parseInt(s[1])
+    if (!(clicked.includes(s))) {
+
     if (game_arr[i0][i1]==1){
         document.getElementById(s).style.backgroundColor = "grey"
-        console.log("hit!")
+        game_score = game_score+1;
+        progress=progress+1
     }
     else {
         document.getElementById(s).style.backgroundColor = "red"
-        console.log("miss!")
+        game_score = game_score-1;
+
     }
+    clicked.push(s)
+if (progress== arrSum(game_arr)){
+    updateHTML("win", "You win with a final score of " +game_score.toString())
+}
+
+
+}
+    updateHTML("score", game_score.toString())
+
 }
 
 
