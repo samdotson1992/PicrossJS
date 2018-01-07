@@ -32,6 +32,8 @@ function makeGrid(size) {
 }
 
 
+console.log(game_arr)
+
 
 //update HTML elements 
 function updateHTML(elmId, value) {
@@ -62,7 +64,7 @@ function table_gen(size) {
     for (i = 0; i < size; i++) {
         f[i] = new Array();
         for (j = 0; j < size; j++) {
-            f[i][j] = "<td><button id= '" + String(i) + String(j) + "' class = 'cell_btn' " + " type='button' onclick = findIndex('" + String(i) + String(j) + "')></button></td>";
+            f[i][j] = "<td id= '" + String(i) + String(j) + "' class = 'cell_btn' " + " type='button' onclick = findIndex('" + String(i) + String(j) + "')> </td>";
         }
     }
     return f
@@ -105,9 +107,11 @@ function findIndex(s) {
     var i0 = parseInt(s[0])
     var i1 = parseInt(s[1])
     if (game_arr[i0][i1]==1){
+        document.getElementById(s).style.backgroundColor = "grey"
         console.log("hit!")
     }
     else {
+        document.getElementById(s).style.backgroundColor = "red"
         console.log("miss!")
     }
 }
