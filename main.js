@@ -4,6 +4,23 @@ var game_encodedT = null;
 var game_score = null;
 var clicked = [];
 var progress = 0;
+var mode_marker =false;
+
+
+//changes the game state.
+function change_mode() {
+    if (mode_marker==false){
+        mode_marker=true;
+        updateHTML("marker", "mark cell: on")
+        document.getElementById("marker").style.backgroundColor = "#aaaaaa"
+    }
+    else {
+        mode_marker=false;
+        updateHTML("marker", "mark cell: off")
+        document.getElementById("marker").style.backgroundColor = "white"
+    }
+}
+
 
 // Make a HTML table style grid.     
 function makeGrid(size) {
@@ -11,6 +28,9 @@ function makeGrid(size) {
     var encoded = encode_arr(arr);
     var encodeT = encode_arr(T(arr));
     var table = table_gen(size);
+    updateHTML("win", "")
+    updateHTML("score", "")
+
 
     game_arr = arr
     game_encoded = encoded
@@ -21,7 +41,7 @@ function makeGrid(size) {
         s += "<td class = 'columns'> " + i.toString().replace(/,/g, "  ") + "</td>";
     };
 
-
+   
     s += "</tr>";
 
     var it=0
@@ -129,7 +149,12 @@ function findIndex(s) {
 
     var i0 = parseInt(s[0])
     var i1 = parseInt(s[1])
-    if (!(clicked.includes(s))) {
+    if (mode_marker==true && !(clicked.includes(s))) {
+       updateHTML(s,"X")  
+    }
+    else {
+
+    if (!(clicked.includes(s)) ) {
 
         if (game_arr[i0][i1] == 1) {
             document.getElementById(s).style.backgroundColor = "#aaaaaa"
@@ -148,6 +173,7 @@ function findIndex(s) {
 
     }
     updateHTML("score", game_score.toString())
+}
 
 }
 
