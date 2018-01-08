@@ -155,6 +155,7 @@ function findIndex(s) {
     else {
 
     if (!(clicked.includes(s)) ) {
+        updateHTML(s,"")
 
         if (game_arr[i0][i1] == 1) {
             document.getElementById(s).style.backgroundColor = "#aaaaaa"
