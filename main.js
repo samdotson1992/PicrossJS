@@ -5,6 +5,7 @@ var game_score = null;
 var clicked = [];
 var progress = 0;
 var mode_marker =false;
+var grid_size =5;
 
 
 //changes the game state.
@@ -142,6 +143,18 @@ function encode_arr(arr) {
         arr_out.push(encoder(i))
     }
     return arr_out
+}
+
+function change_grid_size(d){
+if(d=="up" && (grid_size<= 15) ){
+    grid_size=grid_size+1;
+}
+else if (d=="down" && (grid_size >= 5)) {
+    grid_size=grid_size-1;
+
+}
+updateHTML("grid_size",grid_size.toString() )
+
 }
 
 

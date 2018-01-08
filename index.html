@@ -20,16 +20,22 @@
       <br>
     </div>
 
-    <form>
+    <div id="grid_select">
+      <div>
       <p>Select grid size</p>
-      <select id="select" name="option">
-        <option value=5>5</option>
-        <option value=7>7</option>
-        <option value=10>10</option>
-      </select>
-      <button type="button" onclick="updateHTML('picross', makeGrid(document.getElementById('select').value))">Start Game</button>
-    </form>
+      </div>
+      <br>
+      <br>
+      <button type="button" class="arrow" onclick="change_grid_size('down')">  <h1> &darr; </h1> </button>
+        <br>
+        <h2 id="grid_size"> 5 </h2>
+        <br>
+        <button type="button"  class="arrow" onclick="change_grid_size('up')"> <h1>		&uarr; </h1></button>
+      <br>      
+    </div>
+    <button type="button" id="start" onclick="updateHTML('picross', makeGrid(grid_size))">Start Game</button>
     <div>
+      <br>
       <br>
       <button type="button" id="marker" onclick="change_mode()">mark cell: off </button>
 
