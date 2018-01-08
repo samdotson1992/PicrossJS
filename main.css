@@ -1,86 +1,110 @@
-
 * {
     box-sizing: border-box;
-    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace !important;
+}
+
+body {
+    display: flex;
 }
 
 #menu {
     width: 25%;
-    float: left;
-    margin: 40px;
     padding: 40px;
     font-size: 1.2em;
-
+    display: inline-block;
+    vertical-align: top;
 }
+
 #game {
-    width: 75%;
-    float: center;
+    flex: 1;
+    margin: auto;
+    display: inline-block;
 }
 
 #header{
-  font-weight: 500;
-   font-size: 3.5em;
-   font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+    font-weight: 500;
+    font-size: 3.5em;
 }
 
 
 #picross {
-cell-spacing: 0px;
-border-spacing: 0px;
-border-collapse: separate;
-margin-top: 30px;
-margin-bottom: 30px;
-margin: 30px auto;
-font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+    cell-spacing: 0px;
+    border-spacing: 0px;
+    border-collapse: separate;
+    margin: 30px auto;
 }
 
 #picross td {
-font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;    
-border: 2px solid #000;
-height: 100px;
-width: 100px;
-text-align: center;
-font: 200 60px Lucida Console, monospace;
-cursor: pointer;
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+    border: 2px solid #000;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font: 200 60px Lucida Console, monospace;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.rows{
-    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+.rows {
     text-align:right;
     background-blend-mode: color;
     background-color: black;
     color: whitesmoke;
 }
 
-.columns{
-font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
-vertical-align: -webkit-baseline-middle;
-background-color: black;
-color: whitesmoke;
+.columns {
+    background-color: black;
+    color: whitesmoke;
 }
 
 
 #picross tr:first-child td { /* First row all columns */
-border-top: none
+    border-top: none;
 }
 
 #picross tr:last-child td { /* Last row all columns */
-border-bottom: none
+    border-bottom: none;
 }
 
 #picross tr td:first-child { /* First column of every row */
-border-left: none;
+    border-left: none;
 }
 
 #picross tr td:last-child { /* Last column of every row */
-border-right: none;
+    border-right: none;
 }
 
+
+@media all and (orientation:portrait) {
+    body {
+        display: block;
+    }
+    #header {
+        font-size: 2em;
+        text-align: center;
+    }
+    
+    #menu {
+        width: 100%;
+        display: block;
+        padding-bottom: 10px;
+    }
+    
+    #game {
+        width: 100%;
+        display: block;
+        margin-bottom: 100px;
+    }
+    
+    #picross td {
+        font: 200 30px Lucida Console, monospace;
+        height: 50px;
+        width: 50px;
+    }
+}
 
 
