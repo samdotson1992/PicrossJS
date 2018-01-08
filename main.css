@@ -6,8 +6,8 @@
 #menu {
     width: 25%;
     float: left;
-    margin: 50px;
-    padding: 50px;
+    margin: 40px;
+    padding: 40px;
     font-size: 1.2em;
 
 }
@@ -18,7 +18,7 @@
 
 #header{
   font-weight: 500;
-   font-size: 4em;
+   font-size: 3.5em;
    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
 }
 
@@ -39,7 +39,7 @@ border: 2px solid #000;
 height: 100px;
 width: 100px;
 text-align: center;
-font: 200 60px helvetica neue, arial;
+font: 200 60px Lucida Console, monospace;
 cursor: pointer;
 -webkit-touch-callout: none;
 -webkit-user-select: none;
@@ -48,7 +48,6 @@ cursor: pointer;
 -ms-user-select: none;
 user-select: none;
 }
-
 
 .rows{
     font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
@@ -59,7 +58,7 @@ user-select: none;
 }
 
 .columns{
-    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;    
+font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
 vertical-align: -webkit-baseline-middle;
 background-color: black;
 color: whitesmoke;
