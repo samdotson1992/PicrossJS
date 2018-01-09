@@ -8,8 +8,6 @@ var progress = 0;
 var mode_marker =false;
 var grid_size =5;
 var hide_menu = false
-var marked =[]
-
 
 //changes the game state.
 function change_mode() {
