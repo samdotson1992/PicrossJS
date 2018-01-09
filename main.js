@@ -60,8 +60,6 @@ function makeGrid(size) {
 }
 
 
-
-
 //update HTML elements 
 function updateHTML(elmId, value) {
     var elem = document.getElementById(elmId);
@@ -160,6 +158,7 @@ function encode_arr(arr) {
     return arr_out
 }
 
+//change grid size 
 function change_grid_size(d){
 if(d=="up" && (grid_size<= 15) ){
     grid_size=grid_size+1;
@@ -175,15 +174,18 @@ updateHTML("grid_size",grid_size.toString() )
 
 //check index in game grid
 function findIndex(s) {
-  console.log(marked)
     var i0 = parseInt(s[0])
     var i1 = parseInt(s[1])
-    if (mode_marker==true && !(clicked.includes(s))  && document.getElementById(s).innerHTML=="X"){
-     updateHTML(s," "); 
+
+    if (mode_marker && !(clicked.includes(s))){
+        if (document.getElementById(s).innerHTML=="X"){
+            updateHTML(s,"")
+        }
+        else{
+            updateHTML(s,"X");
+        }
     }
-    else if (mode_marker==true && !(clicked.includes(s))  && document.getElementById(s).innerHTML==" "){
-        updateHTML(s,"X");          
-    }
+
     else {
 
     if (!(clicked.includes(s)) ) {
