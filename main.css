@@ -7,12 +7,12 @@ body {
     display: flex;
 }
 
-#start{
+#start {
     font-weight: bold;
     font-size: 1.5em;
 }
 
-.arrow{
+.arrow {
     text-align: center;
     font-size: 2em;
     margin: 5%;
@@ -22,18 +22,25 @@ body {
 #grid_size {
     margin: 5%;
     padding: 0%;
-
 }
 
+#in_game_menu {
+    margin: 5%;
+}
 
-#grid_select{
-
-    display: -webkit-flex; /* Safari */
-    -webkit-align-items: center; /* Safari 7.0+ */
+#grid_select {
+    display: -webkit-flex;
+    /* Safari */
+    -webkit-align-items: center;
+    /* Safari 7.0+ */
     display: flex;
     align-items: center;
 }
 
+#all_menus {
+    display: inline-block;
+    vertical-align: top;
+}
 
 #menu {
     width: 25%;
@@ -49,14 +56,12 @@ body {
     display: inline-block;
 }
 
-#header{
+#header {
     font-weight: 500;
     font-size: 3.5em;
 }
 
-
 #picross {
-    cell-spacing: 0px;
     border-spacing: 0px;
     border-collapse: separate;
     margin: 30px auto;
@@ -78,7 +83,7 @@ body {
 }
 
 .rows {
-    text-align:right;
+    text-align: right;
     background-blend-mode: color;
     background-color: black;
     color: whitesmoke;
@@ -89,23 +94,25 @@ body {
     color: whitesmoke;
 }
 
-
-#picross tr:first-child td { /* First row all columns */
+#picross tr:first-child td {
+    /* First row all columns */
     border-top: none;
 }
 
-#picross tr:last-child td { /* Last row all columns */
+#picross tr:last-child td {
+    /* Last row all columns */
     border-bottom: none;
 }
 
-#picross tr td:first-child { /* First column of every row */
+#picross tr td:first-child {
+    /* First column of every row */
     border-left: none;
 }
 
-#picross tr td:last-child { /* Last column of every row */
+#picross tr td:last-child {
+    /* Last column of every row */
     border-right: none;
 }
-
 
 @media all and (orientation:portrait) {
     body {
@@ -115,24 +122,19 @@ body {
         font-size: 2em;
         text-align: center;
     }
-    
     #menu {
         width: 100%;
         display: block;
         padding-bottom: 10px;
     }
-    
     #game {
         width: 100%;
         display: block;
         margin-bottom: 100px;
     }
-    
     #picross td {
         font: 200 30px Lucida Console, monospace;
         height: 50px;
         width: 50px;
     }
 }
-
-

@@ -1,3 +1,4 @@
+//global variable assignments
 var game_arr = null;
 var game_encoded = null;
 var game_encodedT = null;
@@ -6,6 +7,8 @@ var clicked = [];
 var progress = 0;
 var mode_marker =false;
 var grid_size =5;
+var hide_menu = false
+var marked =[]
 
 
 //changes the game state.
@@ -58,8 +61,6 @@ function makeGrid(size) {
 
 
 
-console.log(game_arr)
-
 
 //update HTML elements 
 function updateHTML(elmId, value) {
@@ -91,7 +92,7 @@ function table_gen(size) {
     for (i = 0; i < size; i++) {
         f[i] = new Array();
         for (j = 0; j < size; j++) {
-            f[i][j] = "<td id= '" + String(i) + String(j) + "' class = 'cell_btn' " + " type='button' onclick = findIndex('" + String(i) + String(j) + "')> </td>";
+            f[i][j] = "<td id= '" + String(i) + String(j) + "' class = 'cell_btn' " + " type='button' onclick = findIndex('" + String(i) + String(j) + "')>"+ " " +"</td>";
         }
     }
     return f
@@ -136,6 +137,20 @@ function encoder(array) {
 }
 
 
+//toggle elements based upon id. 
+function menu_toggle() {
+    if (hide_menu)
+        {
+        document.getElementById("menu").style.display="inline-block";
+        hide_menu=false
+        }
+    else {
+        document.getElementById("menu").style.display ="none"
+        hide_menu=true
+    }
+} 
+
+
 //Loop through and encode a 2D array using the encoder function
 function encode_arr(arr) {
     var arr_out = []
@@ -158,12 +173,16 @@ updateHTML("grid_size",grid_size.toString() )
 }
 
 
+//check index in game grid
 function findIndex(s) {
-
+  console.log(marked)
     var i0 = parseInt(s[0])
     var i1 = parseInt(s[1])
-    if (mode_marker==true && !(clicked.includes(s))) {
-       updateHTML(s,"X")  
+    if (mode_marker==true && !(clicked.includes(s))  && document.getElementById(s).innerHTML=="X"){
+     updateHTML(s," "); 
+    }
+    else if (mode_marker==true && !(clicked.includes(s))  && document.getElementById(s).innerHTML==" "){
+        updateHTML(s,"X");          
     }
     else {
 
